@@ -33,6 +33,7 @@ function addToPlayListMenu(title) {
 }
 
 function addToPlayList(files) {
+  console.log(files)
   let index = 1;
   for (let file of files) {
     let isAllowed = audioPlayer.canPlayType(file.type);
