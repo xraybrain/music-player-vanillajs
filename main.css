@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 20px;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+body {
+  position: relative;
+  font-family: 'Comfortaa', sans-serif;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+}
+
+.music-panel {
+  position: relative;
+  margin: 20px auto;
+  width: 480px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333;
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 5px, inset 0px 0px 5px;
+}
+
+.drop-zone {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px #1a1919, 0px 0px 5px #1a1919;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: copy;
+}
+
+.drop-zone::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  display: block;
+  background: rgb(15, 15, 15);
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px #1a1919, 0px 0px 5px #1a1919;
+}
+
+
+.progress-panel {
+  width: 100%;
+  padding: 3px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-panel label {
+  align-self: flex-end;
+  right: 0;
+  margin-right: 0;
+}
+
+.progress-bar {
+  position: relative;
+  display: block;
+  width: 50%;
+  height: 5px;
+  background: #646463;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.progress-bar:hover {
+  opacity: 1;
+}
+
+.progress {
+  height: 5px;
+  background-color: #e0a331;
+  width: 0%;
+  max-width: 100%;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.progress::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: #e0a331;
+  display: block;
+  position: absolute;
+  right: 0;
+  border-radius: 50%;
+}
+
+.volume-panel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0px;
+  width: 30px;
+  background-color: #1d1c1c;
+  top: 0px;
+  right: 10px;
+  border-radius: 20px;
+  opacity: 0;
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.dropdown:hover .volume-panel {
+  opacity: 1;
+  height: 100px;
+  top: -85px;
+}
+
+.volume-bar {
+  position: relative;
+  display: flex;
+  height: 60px;
+  width: 5px;
+  background-color: #646463;
+  border-radius: 10px;
+  transform: rotate(180deg);
+  opacity: 0.7;
+  transition: opacity .3s ease-in;
+}
+
+.volume-bar:hover {
+  opacity: 1;
+}
+
+.volume {
+  position: relative;
+  height: 0%;
+  width: 5px;
+  background-color: #e0a331;
+  border-radius: 10px;
+}
+
+.volume::after {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e0a331;
+}
+
+.title-panel {
+  margin: 15px 5px;
+  padding: 4px;
+  text-align: center;
+}
+
+.title {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #eee;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 5;
+}
+
+.navigation-panel {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+.navigation-panel nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 0px;
+  left: -230%;
+  background-color: #1d1c1c;
+  color: #eee;
+  min-width: 100px;
+  width: 200px;
+  height: 0px;
+  max-height: 0px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px #3f3f3f, 0px 0px 5px #0a0a0a;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.dropdown-menu::-webkit-scrollbar {
+  width: 5px;
+  background-color: #646463;
+  border-radius: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  width: 20px;
+  background: #222121;
+  border-radius: 8px;
+}
+
+.dropdown:hover .dropdown-menu {
+  top: -150px;
+  height: 160px;
+  max-height: 160px;
+}
+
+.dropdown-menu label {
+  position: relative;
+  display: block;
+  font-size: 0.55rem;
+  margin: 10px 0px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dropdown-menu label:hover {
+  box-shadow: 0px 0px 2px #333, 0px 0px 2px #333;
+}
+
+.btn {
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #eee;
+  margin: 8px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow ease-in .3s;
+}
+
+.btn:hover,
+.btn:focus {
+  box-shadow: 0px 0px 5px #2c2b2b, 0px 0px 5px #1d1c1c;
+}
+
+.btn-big {
+  height: 65px;
+  width: 65px;
+  font-size: 3rem;
+}
+
+.align-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.hide {
+  display: none;
+  visibility: hidden;
+}
+
+
+@media screen and (max-width: 595px) {
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+  }
+
+  .music-panel {
+    width: 100%;
+    height: 99vh;
+    margin: 0 auto;
+    border-radius: 0px;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
+
+@media screen and (max-height: 350px) {
+
+  .navigation-panel {
+    bottom: 0;
+  }
+
+  .progress-panel {
+    margin-top: -15px;
+  }
+
+  .title-panel {
+    margin-top: -22px;
+  }
+}

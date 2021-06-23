@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+    integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+  <div class="music-panel">
+    <div class="align-top-right">
+      <label class="btn" for="file-loader">
+        <i class="las la-file-audio"></i>
+      </label>
+      <input type="file" id="file-loader" multiple class="hide" accept="audio/mpeg">
+    </div>
+
+    <div id="file-drop-zone" class="drop-zone"></div>
+    <div class="poster"></div>
+
+    <div class="progress-panel">
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="dropdown">
+        <label class="btn" data-toggle="dropdown">
+          <span id="volume-up">
+            <i class="las la-volume-up"></i>
+          </span>
+          <span id="volume-mute" class="hide">
+            <i class="las la-volume-mute"></i>
+          </span>
+        </label>
+        <div class="volume-panel">
+          <div class="volume-bar">
+            <div class="volume"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hide">
+      <audio src="" id="audio-player"></audio>
+    </div>
+
+    <div class="title-panel">
+      <h5 class="title">Music</h5>
+    </div>
+
+    <div class="navigation-panel">
+      <nav>
+        <label id="prev-btn" class="btn">
+          <i class="las la-backward"></i>
+        </label>
+        <label id="play-btn" class="btn btn-big">
+          <i class="las la-play-circle"></i>
+        </label>
+        <label id="pause-btn" class="btn btn-big hide">
+          <i class="las la-pause-circle"></i>
+        </label>
+        <label id="next-btn" class="btn">
+          <i class="las la-forward"></i>
+        </label>
+        <div class="dropdown">
+          <label class="btn" data-toggle="dropdown">
+            <i class="las la-music"></i>
+          </label>
+          <div class="dropdown-menu" id="play-list-menu">
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>
