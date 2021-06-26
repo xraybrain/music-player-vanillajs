@@ -26,15 +26,13 @@ setVolume(audioPlayer.volume);
 function addToPlayListMenu(title) {
   let index = playList.length - 1;
   let label = document.createElement('label');
-  label.textContent = title;
+  label.textContent = `${index+1}. ${title}`;
   label.attributes['data-id'] = index;
   label.addEventListener('click', playFromPlayListMenu);
   playListMenu.appendChild(label);
 }
 
 function addToPlayList(files) {
-  console.log(files)
-  let index = 1;
   for (let file of files) {
     let isAllowed = audioPlayer.canPlayType(file.type);
     if (isAllowed) {
@@ -48,11 +46,10 @@ function addToPlayList(files) {
 
         playList.push(media);
         addToPlayListMenu(media.title)
-        if (index === files.length) play();
+        if (audioPlayer.paused) play();
       });
       reader.readAsDataURL(file);
     }
-    ++index;
   }
 }
 
@@ -179,8 +176,9 @@ prevBtn.addEventListener('click', prev);
 audioPlayer.addEventListener('timeupdate', progressHandler);
 
 progressBar.addEventListener('click', seek);
-progress.addEventListener('drag', seek);
-
+progress.addEventListener('drag', (event) => {
+  console.log('dragging');
+});
 fileLoader.addEventListener('change', fileLoaderHandler);
 
 volumeBar.addEventListener('click', changeVolumeHandler);

@@ -122,7 +122,8 @@ body {
   width: 30px;
   background-color: #1d1c1c;
   top: 0px;
-  right: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   border-radius: 20px;
   opacity: 0;
   transition-property: all;
